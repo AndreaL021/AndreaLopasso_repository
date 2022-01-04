@@ -1,0 +1,93 @@
+*{
+    font-family: 'Source Code Pro', monospace;
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {     -webkit-appearance: none;
+         margin: 0; }
+/* generico */
+a:hover{
+    color: rgb(65, 65, 255);
+}
+i:hover{
+    color: rgb(65, 65, 255);
+}
+.bold{
+    font-weight: bold;
+}
+.mybtn{
+    color: rgb(134, 86, 211);
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: white;
+    border: solid black 3px;
+}
+.mybtn:hover{
+    background-color: rgb(65, 65, 255);
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+/* color */
+.primary{
+    color: rgb(134, 86, 211);
+}
+.secondary{
+    color: rgb(65, 65, 255);
+}
+
+/* layout */
+.body{
+    min-height: 70vh;
+    background: rgb(65,65,255);
+    background: linear-gradient(90deg, rgba(65,65,255,1) 0%, rgba(134,86,211,1) 65%);
+}
+
+/* navbar */
+.mynavbar{
+    background-color: black;
+    font-size: 18px;
+}
+.mybrand{
+    font-family: 'Alfa Slab One', cursive;
+    color: rgb(134, 86, 211);
+    font-size: 25px;
+}
+.drop-item{
+    text-decoration: none;
+}
+.mybadge{
+    position: relative;
+    top: -10px;
+    left: -10px;
+}
+
+/* footer */
+.footer{
+    height: 200px;
+    background-color: black;
+    color: white;
+    margin-top: auto;
+}
+
+/* homepage */
+.homebtn{
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 25px;
+    border: solid black 3px;
+}
+
+.homebtn:hover{
+    background-color: rgb(65, 65, 255);
+    color: white;
+    font-weight: bold;
+    border: solid black 3px;
+}
+.active{
+    background-color: rgb(65, 65, 255);
+    color: white;
+
+}
