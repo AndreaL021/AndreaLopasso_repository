@@ -1,6 +1,5 @@
 <x-layout>
     <x-slot name="title">RevisorHome</x-slot>
-    @if ($announcement!=null)
     <div class="container-fluid body text-center" style="min-height: 70vh">
         @if (session('status'))
             <div class="alert alert-success">
@@ -19,13 +18,23 @@
                         <h6 class="mb-3">{{$announcement->category->name}}</h6>
                         <p class="card-text">Creato da {{$announcement->user->name}} il giorno {{$announcement->created_at}}</p>
                         <div class="mb-4 d-flex justify-content-around">
-                            <form method="POST" action="{{route('revisor.accept', $announcement->id)}}">
+                            <form method="POST" action="{{route('revisor.restore', $announcement->id)}}">
                                 @csrf
-                                <button type="submit" class="btn mybtn mb-3">Accetta</button>
+                                <button type="submit" class="btn mybtn mb-3">Ripristina</button>
                             </form>
-                            <form method="POST" action="{{route('revisor.reject', $announcement->id)}}">
+                            <form method="POST" action="{{route('revisor.delete', $announcement->id)}}">
                                 @csrf
-                                <button type="submit" class="btn mybtn mb-3">Rifiuta</button>
+                                <button class="btn mybtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Elimina</button>
+                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                  <div class="offcanvas-header">
+                                    <h5 id="offcanvasTopLabel">Elimina</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                  </div>
+                                  <div class="offcanvas-body">
+                                      Sei sicuro? L'articolo verrà eliminato definitivamente. <br>
+                                    <button type="submit" class="btn mybtn mb-3">conferma</button>
+                                  </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -33,19 +42,4 @@
             </div>
         </div>
     </div>
-    @else
-        <div class="container-fluid body d-flex flex-column justify-content-evenly text-center pt-5" style="min-height: 70vh">
-            <div><h1>Non ci sono annunci da revisionare</h1></div>
-            @if ($announcements!=null)
-                <div><a href="{{route('revisor.archive')}}" class="btn homebtn position-relative">
-                    Archivio 
-                    <span class="badge bg-warning primary bold rounded-circle">
-                        {{\App\Models\Announcement::ArchiveCount()}}
-                    </span>
-                </a></div>
-            @else
-            <a href="{{route('homepage')}}" class="text-white" style="height: 38px"><i class="fas fa-home" style="position: relative; font-size:38px"></i></a>
-            @endif
-        </div>
-    @endif
 </x-layout>

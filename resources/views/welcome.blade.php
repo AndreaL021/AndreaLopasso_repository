@@ -15,6 +15,7 @@
                 @foreach ($categories as $category)
                         <a href="{{route('category', compact('category'))}}" class="mt-3 btn homebtn">{{$category->name}}</a>
                 @endforeach
+                <span class="flag-icon flag-icon-gr"></span>
         <div class="row d-flex justify-content-center mt-5">
             @foreach ($announcements as $announcement)
                 <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center mb-4 mt-4">

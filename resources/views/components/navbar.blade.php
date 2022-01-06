@@ -26,9 +26,11 @@
                         <li class="nav-item">
                             <a class="nav-link primary bold" href="{{route('revisor.home')}}">
                                 Revisiona
-                                <span class="badge bg-warning primary bold rounded-circle mybadge">
-                                    {{\App\Models\Announcement::ToBeRevisionedCount()}}
-                                </span>
+                                @if (\App\Models\Announcement::ToBeRevisionedCount()!=0)
+                                    <span class="badge bg-warning primary bold rounded-circle mybadge">
+                                        {{\App\Models\Announcement::ToBeRevisionedCount()}}
+                                    </span>
+                                @endif
                             </a>
                         </li>
                     @endif

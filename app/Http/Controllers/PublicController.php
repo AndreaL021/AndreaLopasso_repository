@@ -21,7 +21,7 @@ class PublicController extends Controller
 
         $announcements = Announcement::where('is_accepted', true)
         ->orderBy('created_at', 'desc')
-        ->take(6)
+        ->take(12)
         ->get();
         return view('welcome', compact('announcements'));
     }

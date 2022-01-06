@@ -11362,7 +11362,6 @@ i:hover{
     border-radius: 25px;
     border: solid black 3px;
 }
-
 .homebtn:hover{
     background-color: rgb(65, 65, 255);
     color: white;
@@ -11372,6 +11371,6 @@ i:hover{
 .active{
     background-color: rgb(65, 65, 255);
     color: white;
-
 }
+
 

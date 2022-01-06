@@ -33,6 +33,12 @@ Route::post('/revisor/announcement/{id}/accept', [RevisorController::class, 'acc
 
 Route::post('/revisor/announcement/{id}/reject', [RevisorController::class, 'reject'])->name('revisor.reject');
 
+Route::get('/revisor/archive', [RevisorController::class, 'archive'])->name('revisor.archive');
+
+Route::post('/revisor/announcement/{id}/restore', [RevisorController::class, 'restore'])->name('revisor.restore');
+
+Route::post('/revisor/announcement/{id}/delete', [RevisorController::class, 'delete'])->name('revisor.delete');
+
 Route::get('/contacts', [ContactController::class, 'contacts'])->name('contacts');
 
 Route::post('/contacts/submit', [ContactController::class, 'message'])->name('message');

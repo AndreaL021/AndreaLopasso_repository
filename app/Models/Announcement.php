@@ -32,4 +32,9 @@ class Announcement extends Model
     {
         return Announcement::where('is_accepted', null)->count();
     }
+
+    static public function ArchiveCount()
+    {
+        return Announcement::where('is_accepted', 0)->count();
+    }
 }
