@@ -32,15 +32,14 @@
                             </a>
                         </li>
                     @endif
-                @endauth
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle primary bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Dropdown
                     </a>
-                    <ul class="dropdown-menu text-center" style="left: -2rem; background-color:black;" aria-labelledby="navbarDropdown">
-                        <li><a class="drop-item primary bold" href="{{route('announcement.create')}}">Crea annuncio</a></li>
-                        <li><a class="drop-item primary bold" href="#">Another action</a></li>
-                        @auth
+                        <ul class="dropdown-menu text-center" style="left: -2rem; background-color:black;" aria-labelledby="navbarDropdown">
+                            <li><a class="drop-item primary bold" href="{{route('announcement.create')}}">Crea annuncio</a></li>
+                            <li><a class="drop-item primary bold" href="#">Another action</a></li>
+
                             <li><hr class="dropdown-divider" style="color: white"></li>
                             <li><a class="drop-item primary bold" href="{{route('logout')}}" 
                                 onclick="event.preventDefault(); 
@@ -49,8 +48,8 @@
                             <form method="POST" action="{{route('logout')}}" id="form-logout">
                                 @csrf
                             </form>
-                        @endauth
-                    </ul>
+                        </ul>
+                    @endauth
                 </li>
             </ul>
         </div>

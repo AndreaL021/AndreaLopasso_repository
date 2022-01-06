@@ -19,18 +19,20 @@ use App\Http\Controllers\AnnouncementController;
 
 Route::get('/', [PublicController::class, 'index'])->name('homepage');
 
-Route::get('/contacts', [ContactController::class, 'contacts'])->name('contacts');
+Route::get('/category/view/{category}', [PublicController::class, 'category'])->name('category');
 
-Route::post('/contacts/submit', [ContactController::class, 'message'])->name('message');
+Route::get('/detail/view/{announcement}', [PublicController::class, 'detail'])->name('announcement.detail');
 
 Route::get('/announcement/create', [AnnouncementController::class, 'create'])->name('announcement.create');
 
 Route::post('/announcement/store', [AnnouncementController::class, 'store'])->name('announcement.store');
-
-Route::get('/category/view/{category}', [PublicController::class, 'category'])->name('category');
 
 Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisor.home');
 
 Route::post('/revisor/announcement/{id}/accept', [RevisorController::class, 'accept'])->name('revisor.accept');
 
 Route::post('/revisor/announcement/{id}/reject', [RevisorController::class, 'reject'])->name('revisor.reject');
+
+Route::get('/contacts', [ContactController::class, 'contacts'])->name('contacts');
+
+Route::post('/contacts/submit', [ContactController::class, 'message'])->name('message');
