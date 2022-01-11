@@ -40,7 +40,7 @@
                     </a>
                         <ul class="dropdown-menu text-center" style="left: -2rem; background-color:black;" aria-labelledby="navbarDropdown">
                             <li><a class="drop-item primary bold" href="{{route('announcement.create')}}">Crea annuncio</a></li>
-                            <li><a class="drop-item primary bold" href="#">Another action</a></li>
+                            <li><a class="drop-item primary bold" href="{{route('announcement.show')}}">I tuoi annunci</a></li>
 
                             <li><hr class="dropdown-divider" style="color: white"></li>
                             <li><a class="drop-item primary bold" href="{{route('logout')}}" 

@@ -12,6 +12,18 @@
             </div>
         @endif
         <h1 style="font-size: 40px" class="mybrand text-white pt-5">Amazon</h1>
+        <form action="{{route('search')}}" method="GET">
+            <div class="row d-flex justify-content-center">   
+                <div class="col-3 p-0">
+                    <input type="text" name="q" placeholder="Cerca articolo" class="form-control align-self-center">
+                </div>
+                <div class="col-1">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-2x fa-search search-btn text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
         @foreach ($categories as $category)
                 <a href="{{route('category', compact('category'))}}" class="mt-3 btn homebtn">{{$category->name}}</a>
         @endforeach

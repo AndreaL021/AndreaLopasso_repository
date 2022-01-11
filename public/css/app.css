@@ -11372,5 +11372,8 @@ i:hover{
     background-color: rgb(65, 65, 255);
     color: white;
 }
+.search-btn:hover{
+    color: green;
+}
 
 

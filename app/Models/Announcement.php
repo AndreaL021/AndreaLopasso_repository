@@ -7,10 +7,12 @@ use App\Models\Category;
 use App\Models\Announcement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 
 class Announcement extends Model
 {
     use HasFactory;
+    use Searchable;
     
    protected $fillable = [
     'title',
@@ -19,6 +21,17 @@ class Announcement extends Model
     'user_id',
     'category_id'
     ];
+
+    public function toSearchableArray()
+    {
+        $array = [
+            'id' => $this->id,
+            'title' => $this->title,
+            'body' => $this->body,
+        ];
+
+        return $array;
+    }
 
     public function user(){
         return $this->belongsTo(User::class);

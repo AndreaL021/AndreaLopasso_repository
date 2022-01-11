@@ -36,7 +36,16 @@ class PublicController extends Controller
         ->paginate(6);
         // $announcements->
         $name= $category->name;
-        return view('announcement/category', compact('announcements', 'name'));
+        return view('announcement.category', compact('announcements', 'name'));
+    }
+
+
+    public function search(Request $request){
+        $q = $request->input('q');
+        $announcements = Announcement::search($q)->where('is_accepted', true)->query(function($builder){
+            $builder->with(['title', 'body']);
+        })->get();
+        return view('announcement.search-page', compact('q', 'announcements'));
     }
 
 

@@ -41,26 +41,51 @@ class AnnouncementController extends Controller
     }
 
     
-    public function show(Announcement $announcement)
+    public function show()
     {
-        //
+        $announcements=Auth::user()->announcements()->orderByDesc('created_at')->get();
+
+        return view('announcement.show', compact('announcements'));
     }
 
     
     public function edit(Announcement $announcement)
     {
-        //
+        return view('announcement.edit', compact('announcement'));
     }
 
     
-    public function update(Request $request, Announcement $announcement)
+    public function update(AnnouncementRequest $request, Announcement $announcement)
     {
-        //
+        if (Auth::user()->name === $announcement->user->name) {
+        //     if ($request->file('img')) {
+        //         $announcement->update([
+        //             'title'=>$request->title,
+        //             'body'=>$request->body,
+        //             'price'=>$request->price,
+        //             'category_id'=>$request->category_id,
+        //             'img'=>$request->file('img')->store('public/img'),
+        //         ]);
+        //     }else {
+                $announcement->update([
+                    'title'=>$request->title,
+                    'body'=>$request->body,
+                    'price'=>$request->price,
+                    'category_id'=>$request->category_id,
+                ]);
+        //     }
+        }
+
+        return redirect(route('announcement.show'))->with("status", 'Annuncio modificato correttamente');
     }
 
     
     public function destroy(Announcement $announcement)
     {
-        //
+        if (Auth::user()->name === $announcement->user->name) {
+        $announcement->delete();
+        }
+        
+        return redirect(route('announcement.show'))->with("status", 'Articolo eliminato correttamente');
     }
 }
