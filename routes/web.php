@@ -24,6 +24,12 @@ Route::get('/announcement/create', [AnnouncementController::class, 'create'])->n
 
 Route::post('/announcement/store', [AnnouncementController::class, 'store'])->name('announcement.store');
 
+Route::post('/announcement/images/upload', [AnnouncementController::class, 'uploadImage'])->name('announcement.images.upload');
+
+Route::delete('/announcement/images/remove', [AnnouncementController::class, 'removeImage'])->name('announcement.images.remove');
+
+Route::get('/announcement/images', [AnnouncementController::class, 'getImages'])->name('announcement.images');
+
 Route::get('/announcement/edit/{announcement}', [AnnouncementController::class, 'edit'])->name('announcement.edit');
 
 Route::put('/announcement/{announcement}/update', [AnnouncementController::class, 'update'])->name('announcement.update');

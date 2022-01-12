@@ -14,6 +14,18 @@
                     <div class="card-body">
                         <h1 class="card-title">Articolo numero #{{$announcement->id}}</h1>
                         <h4 class="card-title">{{$announcement->title}}</h4>
+                        <div class="mb-4 d-flex justify-content-around">
+                            @foreach ($announcement->images as $image)
+                                <div>
+                                    <img src="{{Storage::url($image->file)}}" alt="immagine non disponibile" class="rounded">
+                                </div>
+                                <div>
+                                    {{$image->id}} <br>
+                                    {{$image->file}} <br>
+                                    {{Storage::url($image->file)}} <br>
+                                </div>
+                            @endforeach
+                        </div>
                         <p class="mb-3">{{$announcement->body}}</p>
                         <h6 class="mb-3">€{{$announcement->price}}</h6>
                         <h6 class="mb-3">{{$announcement->category->name}}</h6>
