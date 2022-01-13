@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-center mb-4 mt-4">
                 <div class="card" style="width: 60rem; min-height:20rem;">
                     <div class="card-body">
-                        <h5 class="card-title mb-5">{{$announcement->title}}</h5>
+                        <h2 class="card-title mb-5">{{$announcement->title}}</h2>
                         @foreach ($announcement->images as $image)
                             <div>
                                 <img src="{{$image->getUrl(300, 200)}}" alt="immagine non disponibile" class="rounded">

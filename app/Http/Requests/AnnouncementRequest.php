@@ -26,6 +26,7 @@ class AnnouncementRequest extends FormRequest
         return [
             'title'=>'required|max:20',
             'body'=>'required|min:10|max:200',
+            'price'=>'required'
         ];
     }
 
@@ -38,6 +39,7 @@ class AnnouncementRequest extends FormRequest
             'body.required'=>'Inserisci l\'annuncio',
             'body.min'=>'L\'annuncio deve contenere almeno 10 caratteri',
             'body.max'=>'L\'annuncio non può contenere più di 200 caratteri',
+            'price.required'=>'Inserire un prezzo'
         ];
     }
 }
