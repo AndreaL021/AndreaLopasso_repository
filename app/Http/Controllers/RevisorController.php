@@ -64,6 +64,9 @@ class RevisorController extends Controller
     public function delete($id){
         $announcement= Announcement::find($id);
         if ($announcement->is_accepted == false) {
+            foreach($announcement->images()->get() as $image ){
+                $image->delete();
+            }
             $announcement->delete();
         }
         return redirect(route('revisor.home'))->with("status", 'Articolo eliminato correttamente');

@@ -17,12 +17,7 @@
                         <div class="mb-4 d-flex justify-content-around">
                             @foreach ($announcement->images as $image)
                                 <div>
-                                    <img src="{{Storage::url($image->file)}}" alt="immagine non disponibile" class="rounded">
-                                </div>
-                                <div>
-                                    {{$image->id}} <br>
-                                    {{$image->file}} <br>
-                                    {{Storage::url($image->file)}} <br>
+                                    <img src="{{$image->getUrl(300, 200)}}" alt="immagine non disponibile" class="rounded">
                                 </div>
                             @endforeach
                         </div>

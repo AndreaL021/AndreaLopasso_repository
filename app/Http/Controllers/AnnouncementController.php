@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Jobs\ResizeImage;
 use App\Models\Announcement;
-use App\Models\AnnouncementImage;
 use Illuminate\Http\Request;
+use App\Models\AnnouncementImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
@@ -52,8 +53,17 @@ class AnnouncementController extends Controller
             
             $fileName = basename($image);
             $newFileName = "public/announcements/{$announcement->id}/{$fileName}";
-            Storage::move($image, $newFileName);
-       
+            Storage::move($image, $newFileName); 
+            dispatch(new ResizeImage(
+                $newFileName,
+                300,
+                200
+            ));       
+            dispatch(new ResizeImage(
+                $newFileName,
+                300,
+                300
+            ));
             $i->file = $newFileName;
             $i->announcement_id = $announcement->id;
 
@@ -68,6 +78,11 @@ class AnnouncementController extends Controller
     public function uploadImage(Request $request){
         $uniqueSecret= $request->input('uniqueSecret');
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+        dispatch(new ResizeImage(
+            $fileName,
+            120,
+            120
+        ));
         
         session()->push("images.{$uniqueSecret}", $fileName);
         return response()->json(
@@ -101,7 +116,7 @@ class AnnouncementController extends Controller
         foreach ($images as $image){
             $data[] = [
                 'id' =>$image,
-                'src' =>Storage::url($image),
+                'src' =>AnnouncementImage::getUrlByFilePath($image, 120, 120),
             ];
         }
         return response()->json($data);
@@ -146,7 +161,10 @@ class AnnouncementController extends Controller
     
     public function destroy(Announcement $announcement){
         if (Auth::user()->name === $announcement->user->name) {
-        $announcement->delete();
+            foreach($announcement->images()->get() as $image ){
+                $image->delete();
+            }
+            $announcement->delete();
         }
         
         return redirect(route('announcement.show'))->with("status", 'Articolo eliminato correttamente');
