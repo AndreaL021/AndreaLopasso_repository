@@ -2,6 +2,18 @@
     <x-slot name="title">Search</x-slot>
     <div class="container-fluid body text-center" style="min-height: 70vh">
         <h1 class="pt-5">Risultati ricerca per: {{$q}}</h1>
+        <form action="{{route('search')}}" method="GET">
+            <div class="row d-flex justify-content-center">   
+                <div class="col-3 p-0">
+                    <input type="text" name="q" placeholder="Cerca articolo" value="{{$q}}" class="form-control align-self-center">
+                </div>
+                <div class="col-1">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-2x fa-search search-btn text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
         <div class="row d-flex justify-content-center mt-5">
             @foreach ($announcements as $announcement)
                 <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center mb-4 mt-4">

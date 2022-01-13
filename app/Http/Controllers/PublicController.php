@@ -42,9 +42,7 @@ class PublicController extends Controller
 
     public function search(Request $request){
         $q = $request->input('q');
-        $announcements = Announcement::search($q)->where('is_accepted', true)->query(function($builder){
-            $builder->with(['title', 'body']);
-        })->get();
+        $announcements = Announcement::search($q)->where('is_accepted', true)->get();
         return view('announcement.search-page', compact('q', 'announcements'));
     }
 
