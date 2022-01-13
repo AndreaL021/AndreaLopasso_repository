@@ -10,9 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AnnouncementImage extends Model
 {
-    protected $casts =[
-        'labels' => 'array',
-    ];
+    protected $casts =['labels' => 'array',];
 
     public function announcement()
     {

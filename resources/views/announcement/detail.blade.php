@@ -10,6 +10,11 @@
                 <div class="card" style="width: 60rem; min-height:20rem;">
                     <div class="card-body">
                         <h5 class="card-title mb-5">{{$announcement->title}}</h5>
+                        @foreach ($announcement->images as $image)
+                            <div>
+                                <img src="{{$image->getUrl(300, 200)}}" alt="immagine non disponibile" class="rounded">
+                            </div>
+                        @endforeach
                         <h6 class="mb-4">{{$announcement->body}}</h6>
                         <h6 class="mb-4">Prezzo: €{{$announcement->price}}</h6>
                         <h6 class="mb-4">Categoria: {{$announcement->category->name}}</h6>

@@ -14,16 +14,31 @@
                     <div class="card-body">
                         <h1 class="card-title">Articolo numero #{{$announcement->id}}</h1>
                         <h4 class="card-title">{{$announcement->title}}</h4>
-                        <div class="mb-4 d-flex justify-content-around">
+                        <div class="mb-4 row ms-3">
                             @foreach ($announcement->images as $image)
-                                <div>
-                                    <img src="{{$image->getUrl(300, 200)}}" alt="immagine non disponibile" class="rounded">
+                                <div class="col-8 col-md-6 text-start">
+                                    <img src="{{$image->getUrl(300, 200)}}" alt="immagine non disponibile" class="rounded"> <br>
+                                    <h4>Contenuto immagine</h4>
+                                    <p>Solo adulti: {{$image->adult}}</p>
+                                    <p>Bullismo: {{$image->spoof}}</p>
+                                    <p>Medico: {{$image->medical}}</p>
+                                    <p>Violento: {{$image->violence}}</p>
+                                    <p>Razzismo: {{$image->racy}}</p>
+                                    <b>Rilevazioni</b>
+                                    @if ($image->labels)
+                                    <p>
+                                        @foreach ($image->labels as $label)
+                                            {{$label}}
+                                        @endforeach
+                                    </p>
+                                    @endif
                                 </div>
                             @endforeach
                         </div>
+                        <b>Testo annuncio:</b>
                         <p class="mb-3">{{$announcement->body}}</p>
-                        <h6 class="mb-3">€{{$announcement->price}}</h6>
-                        <h6 class="mb-3">{{$announcement->category->name}}</h6>
+                        <b>Prezzo: €{{$announcement->price}}</b> <br>
+                        <b>Categoria: {{$announcement->category->name}}</b>
                         <p class="card-text">Creato da {{$announcement->user->name}} il giorno {{$announcement->created_at}}</p>
                         <div class="mb-4 d-flex justify-content-around">
                             <form method="POST" action="{{route('revisor.accept', $announcement->id)}}">
