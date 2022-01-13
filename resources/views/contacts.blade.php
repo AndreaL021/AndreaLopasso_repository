@@ -27,7 +27,7 @@
                     </ul>
                   </div>
                 @endif
-                <h1 class="logo">PhoneBlog</h1>
+                <h1 class="logo">Amazon</h1>
                 <form method="POST" action="{{route('message')}}" class="mt-5">
                     @csrf
                     <div class="mb-3">

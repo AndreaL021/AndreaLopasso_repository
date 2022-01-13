@@ -31,6 +31,12 @@
                             <a href="{{route('announcement.detail', compact('announcement'))}}" style="text-decoration: none"><h5 class="card-title">{{$announcement->title}}</h5></a>
                             <h6 class="mb-3">€{{$announcement->price}}</h6>
                             <h6 class="mb-3">{{$announcement->category->name}}</h6>
+                            @if ($announcement->is_accepted === null)
+                                <b>Annuncio in attesa di essere approvato</b>
+                            @endif
+                            @if ($announcement->is_accepted === 0)
+                                <a style="text-decoration: none" href="{{route('contacts')}}"><b>Annuncio rifiutato</b></a>
+                            @endif
                             <p class="card-text">{{$announcement->created_at}}</p>
                             <a href="{{route('announcement.edit', compact('announcement'))}}" class="btn btn-warning">Modifica</a>
                             

@@ -19,7 +19,7 @@ class GoogleVisionSafeSearchImage implements ShouldQueue
 
     public function __construct($announcement_image_id)
     {
-        $this->announcement_image_id = $announcement_image_id;
+      $this->announcement_image_id = $announcement_image_id;
     }
 
     public function handle()

@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Jobs\ResizeImage;
-use App\Models\Announcement;
+use App\Http\Requests\AnnouncementRequest;
 use Illuminate\Http\Request;
-use App\Models\AnnouncementImage;
-use App\Jobs\GoogleVisionLabelImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
-use App\Jobs\GoogleVisionRemoveFaces;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Category;
+use App\Models\Announcement;
+use App\Models\AnnouncementImage;
+use App\Jobs\Watermark;
+use App\Jobs\ResizeImage;
+use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionRemoveFaces;
 use App\Jobs\GoogleVisionSafeSearchImage;
-use App\Http\Requests\AnnouncementRequest;
 
 class AnnouncementController extends Controller
 {
@@ -65,6 +66,7 @@ class AnnouncementController extends Controller
             GoogleVisionSafeSearchImage::withChain([
                 new GoogleVisionLabelImage($i->id),
                 new GoogleVisionRemoveFaces($i->id),
+                new Watermark($i->id),
                 new ResizeImage($i->file,300,200),
                 new ResizeImage($i->file,300,300),
                 new ResizeImage($i->file,600,400)
@@ -79,18 +81,12 @@ class AnnouncementController extends Controller
     public function uploadImage(Request $request){
         $uniqueSecret= $request->input('uniqueSecret');
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
-        dispatch(new ResizeImage(
-            $fileName,
-            120,
-            120
-        ));
+        
+        dispatch(new ResizeImage($fileName,120,120));
         
         session()->push("images.{$uniqueSecret}", $fileName);
-        return response()->json(
-            [
-            'id' =>$fileName
-            ]
-        );
+        
+        return response()->json(['id' =>$fileName]);
     }
 
 

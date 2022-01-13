@@ -20,7 +20,6 @@
             <form method="POST" action="{{route('announcement.store')}}" class="mt-5" enctype="multipart/form-data">
               @csrf
               <input type="hidden" name="uniqueSecret" value="{{$uniqueSecret}}">
-              <h3>{{$uniqueSecret}}</h3>
               <div class="mb-3">
                 <h4>Titolo</h4>
                 <input name="title" value="{{old('title')}}" type="text" class="form-control border-dark" id="exampleInputEmail1" aria-describedby="emailHelp">
