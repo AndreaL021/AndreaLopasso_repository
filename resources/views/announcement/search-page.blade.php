@@ -18,6 +18,7 @@
             @foreach ($announcements as $announcement)
                 <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center mb-4 mt-4">
                     <div class="card" style="width: 18rem;">
+                        <img src="{{$announcement->images->first()->getUrl(300, 200)}}" class="card-img-top" alt="Immagine non disponibile">
                         <div class="card-body">
                           <a href="{{route('announcement.detail', compact('announcement'))}}" style="text-decoration: none"><h5 class="card-title">{{$announcement->title}}</h5></a>
                           <h6 class="mb-3">€{{$announcement->price}}</h6>

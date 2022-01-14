@@ -15,7 +15,7 @@
     <title>Contattaci</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="min-height: 80vh">
         <div class="row d-flex justify-content-center text-center align-content-center">
             <div class="col-12 col-md-4 mt-5 mb-3">
                 @if ($errors->any())
