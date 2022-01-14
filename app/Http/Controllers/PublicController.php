@@ -22,6 +22,7 @@ class PublicController extends Controller
         $announcements = Announcement::where('is_accepted', true)
         ->orderBy('created_at', 'desc')
         ->paginate(10);
+
         return view('welcome', compact('announcements'));
     }
 
@@ -34,7 +35,6 @@ class PublicController extends Controller
         ->where('is_accepted', true)
         ->orderBy('created_at', 'desc')
         ->paginate(6);
-        // $announcements->
         $name= $category->name;
         return view('announcement.category', compact('announcements', 'name'));
     }
@@ -48,7 +48,9 @@ class PublicController extends Controller
 
 
     public function detail(Announcement $announcement){
-        return view('announcement.detail', compact('announcement'));
+        $first= $announcement->images->first();
+        $first=$first->id;
+        return view('announcement.detail', compact('announcement', 'first'));
     }
 
 
