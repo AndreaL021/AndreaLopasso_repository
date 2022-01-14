@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-md mynavbar">
     <div class="container-fluid">
-        <a class="navbar-brand mybrand" href="{{route('homepage')}}">Navbar</a>
+        <a class="navbar-brand mybrand" href="{{route('homepage')}}">Amazon</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

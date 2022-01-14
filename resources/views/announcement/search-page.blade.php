@@ -5,7 +5,7 @@
         <form action="{{route('search')}}" method="GET">
             <div class="row d-flex justify-content-center">   
                 <div class="col-3 p-0">
-                    <input type="text" name="q" placeholder="Cerca articolo" value="{{$q}}" class="form-control align-self-center">
+                    <input type="text" name="q" placeholder="Cerca annuncio" value="{{$q}}" class="form-control align-self-center">
                 </div>
                 <div class="col-1">
                     <button type="submit" class="btn">

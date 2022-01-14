@@ -38,43 +38,53 @@ class AnnouncementController extends Controller
     
     public function store(AnnouncementRequest $request)
     {
-        $announcement= Auth::user()->announcements()->create([
-            'title'=>$request->title,
-            'body'=>$request->body,
-            'price'=>$request->price,
-            'category_id'=>$request->category_id,
-        ]);
-
         $uniqueSecret= $request->input('uniqueSecret');
-
         $images = session()->get("images.{$uniqueSecret}",[]);
         $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
-        
         $images= array_diff($images, $removedImages);
 
-        foreach($images as $image){
-            $i = new AnnouncementImage();
-            
-            $fileName = basename($image);
-            $newFileName = "public/announcements/{$announcement->id}/{$fileName}";
-            Storage::move($image, $newFileName);
+        if ($images!=null) {
+            $announcement= Auth::user()->announcements()->create([
+                'title'=>$request->title,
+                'body'=>$request->body,
+                'price'=>$request->price,
+                'category_id'=>$request->category_id,
+            ]);
 
-            $i->file = $newFileName;
-            $i->announcement_id = $announcement->id;
-            $i->save();
+            foreach($images as $image){
+                $i = new AnnouncementImage();
 
-            GoogleVisionSafeSearchImage::withChain([
-                new GoogleVisionLabelImage($i->id),
-                new GoogleVisionRemoveFaces($i->id),
-                new Watermark($i->id),
-                new ResizeImage($i->file,300,200),
-                new ResizeImage($i->file,300,300),
-                new ResizeImage($i->file,600,400)
-            ])->dispatch($i->id);
+                $fileName = basename($image);
+                $newFileName = "public/announcements/{$announcement->id}/{$fileName}";
+                Storage::move($image, $newFileName);
+
+                $i->file = $newFileName;
+                $i->announcement_id = $announcement->id;
+                $i->save();
+                if ($announcement->category->id != 5) {
+                    GoogleVisionSafeSearchImage::withChain([
+                        new GoogleVisionLabelImage($i->id),
+                        new GoogleVisionRemoveFaces($i->id),
+                        new Watermark($i->id),
+                        new ResizeImage($i->file,300,200),
+                        new ResizeImage($i->file,300,300),
+                        new ResizeImage($i->file,600,400)
+                    ])->dispatch($i->id);
+                }else{
+                    GoogleVisionSafeSearchImage::withChain([
+                        new GoogleVisionLabelImage($i->id),
+                        new Watermark($i->id),
+                        new ResizeImage($i->file,300,200),
+                        new ResizeImage($i->file,300,300),
+                        new ResizeImage($i->file,600,400)
+                    ])->dispatch($i->id);
+                }
+            }
+            File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
+            return redirect(route('homepage'))->with("status", 'L\'annuncio è stato inserito, in attesa di essere accettato da un revisore');
+        }else{
+            return redirect(route('announcement.create'))->with("status", 'L\'annuncio richiede almeno un\'immagine.');
         }
-        File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
-
-        return redirect(route('homepage'))->with("status", 'L\'annuncio è stato inserito, in attesa di essere accettato da un revisore');
     }
 
 
@@ -127,34 +137,75 @@ class AnnouncementController extends Controller
     }
 
     
-    public function edit(Announcement $announcement){
-        return view('announcement.edit', compact('announcement'));
+    public function edit(Announcement $announcement, Request $request){
+        $uniqueSecret = $request->old('uniqueSecret', base_convert(sha1(uniqid(mt_rand())), 16, 36));
+        return view('announcement.edit', compact('announcement', 'uniqueSecret'));
     }
 
     
     public function update(AnnouncementRequest $request, Announcement $announcement){
         if (Auth::user()->name === $announcement->user->name) {
-        //     if ($request->file('img')) {
-        //         $announcement->update([
-        //             'title'=>$request->title,
-        //             'body'=>$request->body,
-        //             'price'=>$request->price,
-        //             'category_id'=>$request->category_id,
-        //             'img'=>$request->file('img')->store('public/img'),
-        //         ]);
-        //     }else {
+            $uniqueSecret= $request->input('uniqueSecret');
+            $images = session()->get("images.{$uniqueSecret}",[]);
+            $oldImages= $announcement->images;
+            $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
+            $images= array_diff($images, $removedImages);
+
+            if ($images!=null|| $oldImages->count()>1) {
+
                 $announcement->update([
                     'title'=>$request->title,
                     'body'=>$request->body,
                     'price'=>$request->price,
                     'category_id'=>$request->category_id,
                 ]);
-        //     }
+                if ($images!=null) {
+                    foreach($images as $image){
+                        $i = new AnnouncementImage();
+
+                        $fileName = basename($image);
+                        $newFileName = "public/announcements/{$announcement->id}/{$fileName}";
+                        Storage::move($image, $newFileName);
+
+                        $i->file = $newFileName;
+                        $i->announcement_id = $announcement->id;
+                        $i->save();
+                        if ($announcement->category->id != 5) {
+                            GoogleVisionSafeSearchImage::withChain([
+                                new GoogleVisionLabelImage($i->id),
+                                new GoogleVisionRemoveFaces($i->id),
+                                new Watermark($i->id),
+                                new ResizeImage($i->file,300,200),
+                                new ResizeImage($i->file,300,300),
+                                new ResizeImage($i->file,600,400)
+                            ])->dispatch($i->id);
+                        }else{
+                            GoogleVisionSafeSearchImage::withChain([
+                                new GoogleVisionLabelImage($i->id),
+                                new Watermark($i->id),
+                                new ResizeImage($i->file,300,200),
+                                new ResizeImage($i->file,300,300),
+                                new ResizeImage($i->file,600,400)
+                            ])->dispatch($i->id);
+                        }
+                    }
+                }
+                File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
+            }else{
+                return redirect(route('announcement.edit'))->with("status", 'L\'annuncio richiede almeno un\'immagine.');
+            }
         }
 
         return redirect(route('announcement.show'))->with("status", 'Annuncio modificato correttamente');
     }
 
+    public function deleteImages(AnnouncementImage $image){
+        $announcement=Announcement::find($image->announcement_id);
+        if (Auth::user()->name === $announcement->user->name) {
+            $image->delete();
+        }
+        return redirect(route('announcement.edit', compact('announcement')))->with("status", 'Immagine rimossa correttamente');
+    }
     
     public function destroy(Announcement $announcement){
         if (Auth::user()->name === $announcement->user->name) {

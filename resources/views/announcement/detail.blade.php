@@ -10,26 +10,32 @@
                 <div class="card-body">
                     <div class="row d-flex justify-content-center">
                         <h2 class="card-title mb-5">{{$announcement->title}}</h2>
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 30rem;">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="{{$announcement->images->first()->getUrl(600, 400)}}" alt="immagine non disponibile" class="d-block w-100">
-                                </div>
-                                @foreach ($announcement->images->except([$first]) as $image)
-                                    <div class="carousel-item">
-                                        <img src="{{$image->getUrl(600, 400)}}" alt="immagine non disponibile" class="d-block w-100">
+                        @if ($announcement->images->count()>1)
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 30rem;">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{$announcement->images->first()->getUrl(600, 400)}}" alt="immagine non disponibile" class="d-block w-100">
                                     </div>
-                                @endforeach
+                                    @foreach ($announcement->images->except([$first]) as $image)
+                                        <div class="carousel-item">
+                                            <img src="{{$image->getUrl(600, 400)}}" alt="immagine non disponibile" class="d-block w-100">
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
+                        @else
+                            <div style="width: 30rem;">
+                                <img src="{{$announcement->images->first()->getUrl(600, 400)}}" alt="immagine non disponibile" class="d-block w-100">
+                            </div>
+                        @endif
                         <h6 class="mb-4 mt-4">{{$announcement->body}}</h6>
                         <h6 class="mb-4">Prezzo: €{{$announcement->price}}</h6>
                         <h6 class="mb-4">Categoria: {{$announcement->category->name}}</h6>

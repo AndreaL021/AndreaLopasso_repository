@@ -13,6 +13,11 @@
               </ul>
             </div>
           @endif
+          @if (session('status'))
+              <div class="alert alert-danger">
+                  {{ session('status') }}
+              </div>
+          @endif
         </div>
         <div class="row d-flex justify-content-center text-center">
           <h1>Crea annuncio</h1>
@@ -44,7 +49,7 @@
               </div>
               <div class="mb-3">
                 <h4>Inserisci annuncio</h4>
-                <textarea class="border-dark" name="body" style="position: relative; left: -10rem;" cols="70" rows="15" placeholder="Scrivi qui l'annuncio">{{old('body')}}</textarea>
+                <textarea class="border-dark ps-5" name="body" style="position: relative; left: -10rem;" cols="70" rows="15" placeholder="Scrivi qui l'annuncio">{{old('body')}}</textarea>
               </div>
               <div class="mb-4 d-flex justify-content-around">
                 <button type="submit" class="btn mybtn mb-5">Crea</button>

@@ -34,6 +34,8 @@ Route::get('/announcement/edit/{announcement}', [AnnouncementController::class, 
 
 Route::put('/announcement/{announcement}/update', [AnnouncementController::class, 'update'])->name('announcement.update');
 
+Route::delete('/announcement/image/{image}/delete', [AnnouncementController::class, 'deleteImages'])->name('announcement.images.delete');
+
 Route::delete('/announcement/{announcement}/delete', [AnnouncementController::class, 'destroy'])->name('announcement.delete');
 
 
