@@ -192,7 +192,7 @@ class AnnouncementController extends Controller
                 }
                 File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
             }else{
-                return redirect(route('announcement.edit'))->with("status", 'L\'annuncio richiede almeno un\'immagine.');
+                return redirect(route('announcement.edit', compact('announcement')))->with("status", 'L\'annuncio richiede almeno un\'immagine.');
             }
         }
 

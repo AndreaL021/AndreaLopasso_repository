@@ -22,7 +22,7 @@
                 <h1>Modifica annuncio</h1>
                 <div class="mb-3 col-12">
                     <h4 class="form-label">Immagini</h4>
-                    <div class="row">
+                    <div class="row d-flex justify-content-center">
                     @foreach ($announcement->images as $image)
                         <img src="{{$image->getUrl(300, 200)}}" alt="immagine non disponibile" class="col-3">
                         <div class="align-self-center col-1">  
@@ -47,8 +47,11 @@
                     <div class="mb-3">
                         <h4 for="Select" class="form-label">Categoria</h4>
                         <select name="category_id" class="form-select border-dark">
+                          <option selected value="{{$announcement->category->id}}">{{$announcement->category->name}}</option>
                           @foreach ($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            @if ($category->id != $announcement->category->id)
+                              <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endif
                           @endforeach
                         </select>
                     </div>

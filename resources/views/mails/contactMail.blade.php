@@ -7,12 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hai ricevuto una nuova segnalazione.</h1>
-    <h3>Questi sono i dati dell'utente</h3>
-    
-   <h4>Nome: {{$contact['user']}}</h4> 
-   <h4>Email: {{$contact['email']}}</h4> 
-   <h4>Messaggio: {{$contact['message']}}</h4> 
+    @if ($contact['a']==0)
+        <h1>Hai ricevuto una nuova segnalazione.</h1>
+        <h3>Questi sono i dati dell'utente</h3>
+
+        <h4>Nome: {{$contact['user']}}</h4> 
+        <h4>Email: {{$contact['email']}}</h4> 
+        <h4>Messaggio: {{$contact['message']}}</h4>
+    @else
+        <h1>Hai ricevuto una nuova segnalazione.</h1>
+        <h3>Questi sono i dati dell'utente</h3>
+        <h4>Nome: {{$contact['user']}}</h4> 
+        <h4>Email: {{$contact['email']}}</h4> 
+        <h4>Messaggio: {{$contact['message']}}</h4>
+        <h4>{{$contact['a']}}</h4>
+    @endif
     
 </body>
 </html>

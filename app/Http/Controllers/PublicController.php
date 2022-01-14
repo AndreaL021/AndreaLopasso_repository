@@ -21,7 +21,7 @@ class PublicController extends Controller
 
         $announcements = Announcement::where('is_accepted', true)
         ->orderBy('created_at', 'desc')
-        ->paginate(10);
+        ->paginate(9);
 
         return view('welcome', compact('announcements'));
     }
@@ -29,12 +29,11 @@ class PublicController extends Controller
 
 
     public function category(Category $category){
-        // dd($category->name);
 
         $announcements=$category->announcements()
         ->where('is_accepted', true)
         ->orderBy('created_at', 'desc')
-        ->paginate(6);
+        ->paginate(9);
         $name= $category->name;
         return view('announcement.category', compact('announcements', 'name'));
     }
@@ -42,7 +41,10 @@ class PublicController extends Controller
 
     public function search(Request $request){
         $q = $request->input('q');
-        $announcements = Announcement::search($q)->where('is_accepted', true)->get();
+        $announcements = Announcement::search($q)
+        ->where('is_accepted', true)
+        ->orderBy('created_at', 'desc')
+        ->get();
         return view('announcement.search-page', compact('q', 'announcements'));
     }
 

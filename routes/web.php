@@ -56,4 +56,6 @@ Route::post('/revisor/announcement/{id}/delete', [RevisorController::class, 'del
 // ContactController
 Route::get('/contacts', [ContactController::class, 'contacts'])->name('contacts');
 
-Route::post('/contacts/submit', [ContactController::class, 'message'])->name('message');
+Route::get('/contacts/{announcement}', [ContactController::class, 'contacts2'])->name('contacts2');
+
+Route::post('/contacts/submit/{announcement}', [ContactController::class, 'message'])->name('message');

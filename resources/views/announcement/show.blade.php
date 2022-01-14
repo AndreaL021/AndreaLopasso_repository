@@ -36,7 +36,7 @@
                                 <b>Annuncio in attesa di essere approvato</b>
                             @endif
                             @if ($announcement->is_accepted === 0)
-                                <a style="text-decoration: none" href="{{route('contacts')}}"><b>Annuncio rifiutato</b></a>
+                                <a style="text-decoration: none" href="{{route('contacts2', compact('announcement'))}}"><b>Annuncio rifiutato</b></a>
                             @endif
                             <p class="card-text">{{$announcement->created_at}}</p>
                             <a href="{{route('announcement.edit', compact('announcement'))}}" class="btn btn-warning">Modifica</a>
