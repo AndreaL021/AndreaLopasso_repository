@@ -12,6 +12,8 @@ Route::get('/', [PublicController::class, 'index'])->name('homepage');
 
 Route::get('/search', [PublicController::class, 'search'])->name('search');
 
+Route::post('/locale/{locale}', [PublicController::class, 'locale'])->name('locale');
+
 Route::get('/category/view/{category}', [PublicController::class, 'category'])->name('category');
 
 Route::get('/detail/view/{announcement}', [PublicController::class, 'detail'])->name('announcement.detail');

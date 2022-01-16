@@ -1,6 +1,5 @@
 @import'~bootstrap/dist/css/bootstrap';
-
 @import'~dropzone/dist/basic';
 @import'~dropzone/dist/dropzone';
-
+@import '~flag-icon-css/css/flag-icon';
 @import'style.css';

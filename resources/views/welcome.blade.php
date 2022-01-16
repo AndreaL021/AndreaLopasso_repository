@@ -15,7 +15,7 @@
         <form action="{{route('search')}}" method="GET">
             <div class="row d-flex justify-content-center">   
                 <div class="col-3 p-0">
-                    <input type="text" name="q" placeholder="Cerca annuncio" class="form-control align-self-center">
+                    <input type="text" name="q" placeholder="{{ __('ui.Cerca annuncio')}}" class="form-control align-self-center">
                 </div>
                 <div class="col-1">
                     <button type="submit" class="btn">
