@@ -9,14 +9,6 @@ use Illuminate\Support\Facades\View;
 
 class PublicController extends Controller
 {
-    public function __construct(){
-        
-        $categories=Category::all();
-        View::share('categories', $categories);
-    }
-
-
-
     public function index(){
 
         $announcements = Announcement::where('is_accepted', true)
