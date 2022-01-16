@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-8 mt-5">
             @auth
-                <a href="{{route('contacts')}}" class="primary ms-5" style="text-decoration: none">Contattaci</a>
+                <a href="{{route('contacts')}}" class="primary ms-5" style="text-decoration: none">{{ __('ui.Contattaci')}}</a>
             @endauth
         </div>
         <div class="col-4 mt-5 d-flex justify-content-end">
