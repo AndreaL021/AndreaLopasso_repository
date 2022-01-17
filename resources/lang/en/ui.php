@@ -44,4 +44,33 @@ return[
     'Elimina'=>'Delete',                           
     'Conferma'=>'Confirm',
     'Sei sicuro? L\'annuncio verrà eliminato definitivamente'=>'Are you sure? The announcement will be permanently deleted',
+    
+    'Inserisci la tua password'=>'Enter your password',
+    'Inserisci la tua email'=>'Insert your email',
+    
+    'Inserisci il tuo nome'=>'Insert your name',
+    'Inserisci una password'=>'Insert your password',
+    'Conferma password'=>'Confirm password',
+    
+    'Annuncio in attesa di essere approvato'=>'Announcement pending approval',
+    'Annuncio rifiutato'=>'Announcement rejected',
+    'Modifica'=>'Edit',
+    'Sei sicuro di voler eliminare l\'annuncio?'=>'Are you sure you want to delete the announcement',
+    'Annulla'=>'Cancel',
+    
+    'Risultati ricerca per'=>'Search results',
+    
+    'Modifica annuncio'=>'Edit announcement',
+    'Titolo'=>'Title',
+    'Prezzo'=>'Price',
+    'Aggungi immagini'=>'Add images',
+    'Immagini'=>'Images',
+
+    'Annuncio di'=>'Announcement owner',
+
+    'Crea annuncio'=>'Create announcement',
+    'Categoria annuncio'=>'Announcement category',
+    'Inserisci prezzo'=>'Insert price',
+    'Crea'=>'Create',
+
 ];

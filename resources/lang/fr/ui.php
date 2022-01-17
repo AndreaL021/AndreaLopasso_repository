@@ -44,4 +44,34 @@ return[
     'Elimina'=>'Supprimer',                           
     'Conferma'=>'Confirmation',
     'Sei sicuro? L\'annuncio verrà eliminato definitivamente'=>'Es-tu sûr? L\'annonce sera définitivement supprimée',
+    
+    'Inserisci la tua password'=>'Tapez votre mot de passe',
+    'Inserisci la tua email'=>'Insérez votre email',
+    
+    'Inserisci il tuo nome'=>'Insérez votre nom',
+    'Inserisci una password'=>'Entrer un mot de passe',
+    'Conferma password'=>'Confirmez le mot de passe',
+    
+    'Annuncio in attesa di essere approvato'=>'Annonce en attente d\'approbation',
+    'Annuncio rifiutato'=>'Annonce refusée',
+    'Modifica'=>'Éditer',
+    'Sei sicuro di voler eliminare l\'annuncio?'=>'Voulez-vous vraiment supprimer l\'annonce ?',
+    'Annulla'=>'Annuler',
+    
+    'Risultati ricerca per'=>'Résultats de recherche',
+    
+    'Modifica annuncio'=>'Modifier l\'annonce',
+    'Titolo'=>'Titre',
+    'Prezzo'=>'Prix',
+    'Aggungi immagini'=>'Ajouter des images',
+    'Immagini'=>'Images',
+
+    'Annuncio di'=>'Annonce de',
+    
+    'Crea annuncio'=>'Créer une publicité',
+    'Categoria annuncio'=>'Catégorie d\'annonce',
+    'Inserisci prezzo'=>'Entrez le prix',
+    'Crea'=>'Créer',
+
+
 ];

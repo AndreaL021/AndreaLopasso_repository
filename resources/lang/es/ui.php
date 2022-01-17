@@ -44,4 +44,34 @@ return[
     'Elimina'=>'Borrar',                           
     'Conferma'=>'Confirmación',
     'Sei sicuro? L\'annuncio verrà eliminato definitivamente'=>'¿Está seguro? El anuncio se eliminará de forma permanente.',
+
+    'Inserisci la tua password'=>'Ingresa tu contraseña',
+    'Inserisci la tua email'=>'Inserta tu correo electrónico',
+    
+    'Inserisci il tuo nome'=>'Inserta tu nombre',
+    'Inserisci una password'=>'Ingrese una contraseña',
+    'Conferma password'=>'Confirmar contraseña',
+    
+    'Annuncio in attesa di essere approvato'=>'Anuncio pendiente de aprobación',
+    'Annuncio rifiutato'=>'Anuncio rechazado',
+    'Modifica'=>'Editar',
+    'Sei sicuro di voler eliminare l\'annuncio?'=>'¿Está seguro de que desea eliminar el anuncio?',
+    'Annulla'=>'Cancelar',
+
+    'Risultati ricerca per'=>'Resultados de la búsqueda',
+    
+    'Modifica annuncio'=>'Editar anuncio',
+    'Titolo'=>'Título',
+    'Prezzo'=>'Precio',
+    'Aggungi immagini'=>'Añadir imágenes',
+    'Immagini'=>'Imágenes',
+
+    'Annuncio di'=>'Anuncio de',
+    
+    'Crea annuncio'=>'Crear anuncio',
+    'Categoria annuncio'=>'Categoría de anuncio',
+    'Inserisci prezzo'=>'Introduce el precio',
+    'Crea'=>'Crear',
+
+
 ];

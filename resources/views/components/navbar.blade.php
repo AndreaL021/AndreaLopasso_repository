@@ -49,7 +49,7 @@
                         <a class="nav-link dropdown-toggle primary bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ __('ui.Annunci')}}
                         </a>
-                        <ul class="dropdown-menu text-center" style="left: -2rem; background-color:black;" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu text-center p-2" style="left: -2rem; background-color:black;" aria-labelledby="navbarDropdown">
                             <li><a class="drop-item primary bold" href="{{route('announcement.create')}}">{{ __('ui.Crea annunci')}}</a></li>
                             <li><a class="drop-item primary bold" href="{{route('announcement.show')}}">{{ __('ui.I tuoi annunci')}}</a></li>
                             <li><hr class="dropdown-divider" style="color: white"></li>

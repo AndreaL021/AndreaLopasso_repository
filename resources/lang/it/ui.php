@@ -29,4 +29,33 @@ return [
     'Ripristina'=>'Ripristina',
     'Elimina'=>'Elimina',                           'Conferma'=>'Conferma',
     'Sei sicuro? L\'annuncio verrà eliminato definitivamente'=>'Sei sicuro? L\'annuncio verrà eliminato definitivamente',
+    // login
+    'Inserisci la tua password'=>'Inserisci la tua password',
+    'Inserisci la tua email'=>'Inserisci la tua email',
+    // register
+    'Inserisci il tuo nome'=>'Inserisci il tuo nome',
+    'Inserisci una password'=>'Inserisci una password',
+    'Conferma password'=>'Conferma password',
+    // show
+    'Annuncio in attesa di essere approvato'=>'Annuncio in attesa di essere approvato',
+    'Annuncio rifiutato'=>'Annuncio rifiutato',
+    'Modifica'=>'Modifica',
+    'Sei sicuro di voler eliminare l\'annuncio?'=>'Sei sicuro di voler eliminare l\'annuncio?',
+    'Annulla'=>'Annulla',
+    // searc
+    'Risultati ricerca per'=>'Risultati ricerca',
+    // edit
+    'Modifica annuncio'=>'Modifica annuncio',
+    'Titolo'=>'Titolo',
+    'Prezzo'=>'Prezzo',
+    'Aggungi immagini'=>'Aggungi immagini',
+    'Immagini'=>'Immagini',
+    // detail
+    'Annuncio di'=>'Annuncio di',
+    // create
+    'Crea annuncio'=>'Crea annuncio',
+    'Categoria annuncio'=>'Categoria annuncio',
+    'Inserisci prezzo'=>'Inserisci prezzo',
+    'Crea'=>'Crea',
+
 ];

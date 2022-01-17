@@ -11,7 +11,7 @@
         <form action="{{route('search')}}" method="GET">
             <div class="row d-flex justify-content-center">   
                 <div class="col-3 p-0">
-                    <input type="text" name="q" placeholder="Cerca articolo" class="form-control align-self-center">
+                    <input type="text" name="q" placeholder="{{ __('ui.Cerca annuncio')}}" class="form-control align-self-center">
                 </div>
                 <div class="col-1">
                     <button type="submit" class="btn">
@@ -33,34 +33,34 @@
                             <h6 class="mb-3">€{{$announcement->price}}</h6>
                             <h6 class="mb-3">{{$announcement->category->name}}</h6>
                             @if ($announcement->is_accepted === null)
-                                <b>Annuncio in attesa di essere approvato</b>
+                                <b>{{ __('ui.Annuncio in attesa di essere approvato')}}</b>
                             @endif
                             @if ($announcement->is_accepted === 0)
-                                <a style="text-decoration: none" href="{{route('contacts2', compact('announcement'))}}"><b>Annuncio rifiutato</b></a>
+                                <a style="text-decoration: none" href="{{route('contacts2', compact('announcement'))}}"><b>{{ __('ui.Annuncio rifiutato')}}</b></a>
                             @endif
                             <p class="card-text">{{$announcement->created_at}}</p>
-                            <a href="{{route('announcement.edit', compact('announcement'))}}" class="btn btn-warning">Modifica</a>
+                            <a href="{{route('announcement.edit', compact('announcement'))}}" class="btn btn-warning">{{ __('ui.Modifica')}}</a>
                             
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Elimina
+                                {{ __('ui.Elimina')}}
                             </button>
 
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Elimina</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">{{ __('ui.Elimina')}}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Sei sicuro di voler eliminare l'annuncio?</p>
+                                            <p>{{ __('ui.Sei sicuro di voler eliminare l\'annuncio?')}}</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('ui.Annulla')}}</button>
                                             <form action="{{route('announcement.delete', compact('announcement'))}}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <button class="btn btn-danger">Elimina</a>
+                                                <button class="btn btn-danger">{{ __('ui.Elimina')}}</a>
                                             </form>
                                         </div>
                                     </div>

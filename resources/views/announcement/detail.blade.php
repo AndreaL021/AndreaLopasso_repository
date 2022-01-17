@@ -37,35 +37,35 @@
                             </div>
                         @endif
                         <h6 class="mb-4 mt-4">{{$announcement->body}}</h6>
-                        <h6 class="mb-4">Prezzo: €{{$announcement->price}}</h6>
-                        <h6 class="mb-4">Categoria: {{$announcement->category->name}}</h6>
+                        <h6 class="mb-4">{{ __('ui.Prezzo')}}: €{{$announcement->price}}</h6>
+                        <h6 class="mb-4">{{ __('ui.Categoria')}}: {{$announcement->category->name}}</h6>
                         <div class="d-flex justify-content-evenly">
                             <p class="card-text">{{$announcement->created_at}}</p>
-                            <p class="card-text">Annuncio di: {{$announcement->user->name}}</p>
+                            <p class="card-text">{{ __('ui.Annuncio di')}}: {{$announcement->user->name}}</p>
                         </div>
                         @if ($announcement->user->name===Auth::user()->name)
                             <div class="d-flex justify-content-evenly">
-                                <a href="{{route('announcement.edit', compact('announcement'))}}" class="btn btn-warning mt-3">Modifica</a>
+                                <a href="{{route('announcement.edit', compact('announcement'))}}" class="btn btn-warning mt-3">{{ __('ui.Modifica')}}</a>
                                 <button type="button" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Elimina
+                                    {{ __('ui.Elimina')}}
                                 </button>
                             
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Elimina</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">{{ __('ui.Elimina')}}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Sei sicuro di voler eliminare l'annuncio?</p>
+                                                <p>{{ __('ui.Sei sicuro di voler eliminare l\'annuncio?')}}</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('ui.Annulla')}}</button>
                                                 <form action="{{route('announcement.delete', compact('announcement'))}}" method="POST">
                                                     @csrf
                                                     @method('delete')
-                                                    <button class="btn btn-danger">Elimina</a>
+                                                    <button class="btn btn-danger">{{ __('ui.Elimina')}}</a>
                                                 </form>
                                             </div>
                                         </div>
