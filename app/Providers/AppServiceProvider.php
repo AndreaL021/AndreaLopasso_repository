@@ -26,11 +26,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(Schema::hasTable('categories')){
-
-            $categories = Category::all();
-
-            View::share('categories', $categories);
-        }
     }
 }
