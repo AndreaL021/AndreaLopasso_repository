@@ -26,11 +26,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // if(Schema::hasTable('categories')){
+        if(Schema::hasTable('categories')){
 
-        //     $categories = Category::all();
+            $categories = Category::all();
 
-        //     View::share('categories', $categories);
-        // }
+            View::share('categories', $categories);
+        }
     }
 }

@@ -15,15 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $categories = ['Auto', 'Moto', 'Informatica', 'Libri', 'Giochi', 'Sport', 'Immobili', 'Telefoni'];
+        $categories = ['Auto', 'Moto', 'Informatica', 'Libri', 'Giochi', 'Sport', 'Immobili', 'Telefoni'];
 
-        // foreach ($categories as $category){
+        foreach ($categories as $category){
 
-        //     DB::table('categories')->insert([
-        //         'name'=> $category,
-        //         'created_at'=>Carbon::now(),
-        //         'updated_at'=>Carbon::now(),
-        //     ]);
-        // }
+            DB::table('categories')->insert([
+                'name'=> $category,
+                'created_at'=>Carbon::now(),
+                'updated_at'=>Carbon::now(),
+            ]);
+        }
     }
 }
