@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- mycss -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaQuery.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- google font -->
+    <title>Mypage</title>
+</head>
+<body>
+<div class="container-fluid bg-dark field">
+    <div class="personaggio">
+        <div class="box text-center">
+            <span class="vita b gold"></span><br>
+            <span class="pozioni b gold"></span><br>
+            <span class="livello b gold"></span>
+        </div>
+        <img class="giocatore" src="/immagini/personaggio.png" alt="Giocatore">
+        <div class="atk"></div>
+        <div class="d-flex justify-content-center">
+            <button id="heal" class="btn b text-white bg-green col-5 m-1">Pozione</button>
+        </div>
+    </div>
+    <div class="nemico">
+        <div class="box2 d-flex text-center align-items-center">
+            <span class="enemyhp b gold"></span><br>
+        </div>
+        <div id="enemy"></div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" id="message" style="background-color: unset; border: none;">
+                    <span class="text-center text-white fs-message">Clicca per continuare</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- My JavaScript -->
+<script type="module" src="main.js"></script>
+
+</body>
+</html>
