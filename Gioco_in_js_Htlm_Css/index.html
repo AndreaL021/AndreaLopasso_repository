@@ -17,30 +17,29 @@
 </head>
 <body>
 <div class="container-fluid bg-dark field">
-    <div class="personaggio">
-        <div class="box text-center">
-            <span class="vita b gold"></span><br>
-            <span class="pozioni b gold"></span><br>
-            <span class="livello b gold"></span>
-        </div>
-        <img class="giocatore" src="/immagini/personaggio.png" alt="Giocatore">
-        <div class="atk"></div>
-        <div class="d-flex justify-content-center">
-            <button id="heal" class="btn b text-white bg-green col-5 m-1">Pozione</button>
-        </div>
+    <div class="box text-center">
+        <div class="vita b gold"></div>
+        <div class="pozioni b gold"></div>
+        <div class="livello b gold"></div>
     </div>
-    <div class="nemico">
-        <div class="box2 d-flex text-center align-items-center">
-            <span class="enemyhp b gold"></span><br>
-        </div>
-        <div id="enemy"></div>
+    <div>
+        <img class="giocatore" src="/immagini/personaggio.png" alt="Giocatore">
+    </div>
+    <div class="p1-btn">
+        <div class="atk"></div>
+    </div>
+    <span class="b dmg-message">-51HP</span>
+    <span class="b dmg-message2">-12HP</span>
+    <div id="enemy"></div>
+    <div class="box2 d-flex text-center align-items-center">
+        <span class="enemyhp b gold"></span><br>
+    </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" id="message" style="background-color: unset; border: none;">
-                    <span class="text-center text-white fs-message">Clicca per continuare</span>
-                </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" id="message" style="background-color: unset; border: none;">
+                <span class="text-center text-white fs-message">Clicca per continuare</span>
             </div>
         </div>
     </div>

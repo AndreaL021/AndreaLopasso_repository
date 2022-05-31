@@ -15,17 +15,32 @@ button:hover{
     background-size: cover;
 }
 .giocatore{
-    position: relative;
-    left: 150px;
-    top: 50px;
-}
-.personaggio{
     position: absolute;
-    top:20vh;
-    left: 10vw;
+    width: 300px;
+    height: 300px;
+    left: 20%;
+    top: 40%;
+}
+.dmg-message{
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    font-size: 30px;
+    color: rgb(255, 14, 14);
+    z-index: 10;
+}
+.dmg-message2{
+    position: absolute;
+    top: 40%;
+    right: 40%;
+    font-size: 30px;
+    color: rgb(255, 14, 14);
+    z-index: 10;
 }
 .box{
-    margin-left: 50px;
+    position: absolute;
+    top: 20%;
+    left: 20%;
     height: 100px;
     width: 200px;
     border: solid;
@@ -34,7 +49,9 @@ button:hover{
     border-radius: 100%;
 }
 .box2{
-    margin-bottom: 30px;
+    position: absolute;
+    top: 20%;
+    right: 20%;
     height: 100px;
     width: 200px;
     border: solid;
@@ -42,50 +59,45 @@ button:hover{
     border-color: rgb(229, 255, 0);
     border-radius: 100%;
 }
-.bg-green{
-    background-color: rgb(52, 136, 19);
-}
-.nemico{
-    position: absolute;
-    top:20vh;
-    right: 10vw;
-}
 .enemy{
+    position: absolute;
+    left: 60%;
+    top: 40%;
     background-image: url("./immagini/nemico1.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 300px;
     width: 300px;
-    position: relative;
-    right: 50px;
 }
 .enemy2{
+    position: absolute;
+    left: 60%;
+    top: 40%;
     background-image: url("./immagini/nemico2.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 300px;
     width: 300px;
-    position: relative;
-    right: 50px;
 }
 .enemy3{
+    position: absolute;
+    left: 60%;
+    top: 40%;
     background-image: url("./immagini/nemico3.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 300px;
     width: 300px;
-    position: relative;
-    right: 50px;
-    /* background-color: unset ; */
 }
 .boss{
+    position: absolute;
+    left: 60%;
+    top: 40%;
     background-image: url("./immagini/boss.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 350px;
     width: 350px;
-    position: relative;
-    right: 50px;
 }
 .fs-message{
     font-size: 25px;
@@ -94,6 +106,15 @@ button:hover{
 .btn{
     border: none;
     border-radius: 10px;
-    position: relative;
-    top: 30px;
+    width: 20vw;
+}
+.bg-green{
+    background-color: rgb(52, 136, 19);
+    width: 34vw;
+
+}
+.p1-btn{
+    position: absolute;
+    bottom: 10px;
+    right: auto;
 }

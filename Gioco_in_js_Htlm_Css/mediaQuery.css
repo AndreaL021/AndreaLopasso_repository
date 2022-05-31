@@ -1,298 +1,258 @@
-@media screen and (max-width: 1200px){
-    .btn{
-        position: relative;
-        top:-100px;
-        left: -80px;
-    }
-}
-@media screen and (max-width: 1000px){
-    .vita{
-        font-size: 13px;
-    }
-    .pozioni{
-        font-size: 13px;
-        position: relative;
-        top: -7px;
-    }
-    .livello{
-        font-size: 13px;
-        position: relative;
-        top: -15px;
+@media screen and (max-width: 1025px){
+    .field{
+        width: 100vw;
+        height: 100vh;
+        background-image: url("/immagini/background.jpg");
+        background-size: cover;
     }
     .giocatore{
-        height: 150px;
-        width: 150px;
-        position: relative;
-        left: 100px;
-    }
-    .personaggio{
         position: absolute;
-        top: 25vh;
-        left: 20vw;
-    }
-    .box{
-        margin-left: 50px;
-        height: 70px;
-        width: 110px;
-        border: solid;
-        border-width: 5px;
-        border-color: rgb(229, 255, 0);
-        border-radius: 100%;
-        position: relative;
-        left: -100px;
-    }
-    .box2{
-        margin-bottom: 30px;
-        height: 70px;
-        width: 100px;
-        border: solid;
-        border-width: 5px;
-        border-color: rgb(229, 255, 0);
-        border-radius: 100%;
-        position: relative;
-        left: 50px;
-    }
-    .nemico{
-        position: absolute;
-        top:20vh;
-        right: 15vw;
+        width: 200px;
+        height: 200px;
+        left: 20%;
+        top: 40%;
     }
     .enemy{
+        position: absolute;
+        left: 60%;
+        top: 40%;
         background-image: url("./immagini/nemico1.png");
         background-size: contain;
-        background-repeat: no-repeat;
-        height: 130px;
-        width: 130px;
-        position: relative;
-        top: 20px;
+        height: 200px;
+        width: 200px;
     }
     .enemy2{
+        position: absolute;
+        left: 60%;
+        top: 40%;
         background-image: url("./immagini/nemico2.png");
         background-size: contain;
-        background-repeat: no-repeat;
-        height: 150px;
-        width: 150px;
-        position: relative;
-        top: 20px;
+        height: 200px;
+        width: 200px;
     }
     .enemy3{
+        position: absolute;
+        left: 60%;
+        top: 40%;
         background-image: url("./immagini/nemico3.png");
         background-size: contain;
-        background-repeat: no-repeat;
-        height: 150px;
-        width: 150px;
+        height: 200px;
+        width: 200px;
     }
     .boss{
+        position: absolute;
+        left: 60%;
+        top: 40%;
         background-image: url("./immagini/boss.png");
         background-size: contain;
-        background-repeat: no-repeat;
-        height: 150px;
-        width: 150px;
-        position: relative;
-        right: 50px;
-        top: 30px;
+        height: 250px;
+        width: 250px;
     }
     .fs-message{
-        font-size: 15px;
-        
+        font-size: 20px;
+
     }
-    .btn{
-        height: 25px;
-        border: none;
-        border-radius: 10px;
-        font-size: 10px;
-        position: relative;
-        top:-100px;
-        left: -140px;
+    .atk{
+        position: absolute;
+        left: 30px;
+        bottom: 90px;
+    }
+    .bg-green{
+        background-color: rgb(52, 136, 19);
+        width: 38vw;
+        position: absolute;
+        left: 50px;
+        bottom: 50px;
+    }
+}
+@media screen and (max-height:700px){
+    .field{
+        width: 100vw;
+        height: 100vh;
+        background-image: url("/immagini/background.jpg");
+        background-size: cover;
+    }
+    .giocatore{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        left: 20%;
+        top: 40%;
+    }
+    .enemy{
+        position: absolute;
+        left: 60%;
+        top: 40%;
+        background-image: url("./immagini/nemico1.png");
+        background-size: contain;
+        height: 200px;
+        width: 200px;
+    }
+    .enemy2{
+        position: absolute;
+        left: 60%;
+        top: 40%;
+        background-image: url("./immagini/nemico2.png");
+        background-size: contain;
+        height: 200px;
+        width: 200px;
+    }
+    .enemy3{
+        position: absolute;
+        left: 60%;
+        top: 40%;
+        background-image: url("./immagini/nemico3.png");
+        background-size: contain;
+        height: 200px;
+        width: 200px;
+    }
+    .boss{
+        position: absolute;
+        left: 60%;
+        top: 40%;
+        background-image: url("./immagini/boss.png");
+        background-size: contain;
+        height: 250px;
+        width: 250px;
+    }
+    .fs-message{
+        font-size: 20px;
+
+    }
+    .atk{
+        position: absolute;
+        left: 30px;
+        bottom: 60px;
+    }
+    .bg-green{
+        background-color: rgb(52, 136, 19);
+        width: 38vw;
+        position: absolute;
+        left: 50px;
+        bottom: 20px;
     }
 }
 @media screen and (max-width: 700px){
-    .vita{
-        font-size: 10px;
-    }
-    .pozioni{
-        font-size: 10px;
-        position: relative;
-        top: -10px;
-    }
-    .livello{
-        font-size: 10px;
-        position: relative;
-        top: -20px;
-    }
-    .giocatore{
-        height: 120px;
-        width: 120px;
-        position: relative;
-        top:40px;
-        left: 70px;
-    }
-    .personaggio{
-        position: absolute;
-        top: 25vh;
-        left: 20vw;
-    }
-    .box{
-        margin-left: 50px;
-        height: 70px;
-        width: 100px;
-        border: solid;
-        border-width: 4px;
-        border-color: rgb(229, 255, 0);
-        border-radius: 100%;
-    }
-    .box2{
-        margin-bottom: 30px;
-        height: 70px;
-        width: 100px;
-        border: solid;
-        border-width: 4px;
-        border-color: rgb(229, 255, 0);
-        border-radius: 100%;
-    }
-    .nemico{
-        position: absolute;
-        top:20vh;
-        right: 15vw;
-    }
-    .enemy{
-        background-image: url("./immagini/nemico1.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 100px;
-        width: 100px;
-    }
-    .enemy2{
-        background-image: url("./immagini/nemico2.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 120px;
-        width: 120px;
-        position: relative;
-        top: -20px;
-    }
-    .enemy3{
-        background-image: url("./immagini/nemico3.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 120px;
-        width: 120px;
-        position: relative;
-        top: -20px;
-    }
-    .boss{
-        background-image: url("./immagini/boss.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 130px;
-        width: 130px;
-    }
-    .fs-message{
-        font-size: 15px;
-        
-    }
-    .btn{
-        height: 25px;
-        border: none;
-        border-radius: 10px;
-        font-size: 10px;
-        position: relative;
-        top:-100px;
-        left: -100px;
-    }
+.giocatore{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 20%;
+    top: 40%;
+}
+.gold{
+    color: gold;
+    margin: auto;
+    font-size: 10px;
+}
+.dmg-message{
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    font-size: 15px;
+    color: rgb(255, 14, 14);
+    z-index: 10;
+}
+.dmg-message2{
+    position: absolute;
+    top: 40%;
+    right: 40%;
+    font-size: 15px;
+    color: rgb(255, 14, 14);
+    z-index: 10;
+}
+.box{
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    height: 50px;
+    width: 100px;
+    border: solid;
+    border-width: 3px;
+    border-color: rgb(229, 255, 0);
+    border-radius: 100%;
+}
+.box2{
+    position: absolute;
+    top: 25%;
+    right: 20%;
+    height: 50px;
+    width: 100px;
+    border: solid;
+    border-width: 3px;
+    border-color: rgb(229, 255, 0);
+    border-radius: 100%;
+}
+.enemy{
+    position: absolute;
+    left: 60%;
+    top: 40%;
+    background-image: url("./immagini/nemico1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    right: 50px;
+}
+.enemy2{
+    position: absolute;
+    left: 60%;
+    top: 40%;
+    background-image: url("./immagini/nemico2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    right: 50px;
+}
+.enemy3{
+    position: absolute;
+    left: 60%;
+    top: 40%;
+    background-image: url("./immagini/nemico3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    right: 50px;
+    /* background-color: unset ; */
+}
+.boss{
+    position: absolute;
+    left: 60%;
+    top: 40%;
+    background-image: url("./immagini/boss.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    right: 50px;
+}
+.fs-message{
+    font-size: 15px;
+    
+}
+.bg-green{
+    background-color: rgb(52, 136, 19);
+    width: 20vw;
+    position: relative;
+    left: 30px;
+
+}
+.btn{
+    border: none;
+    border-radius: 10px;
+    font-size: 15px !important;
+}
+.p1-btn{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
 }
 @media screen and (max-height:320px){
-    .vita{
-        font-size: 10px;
-    }
-    .pozioni{
-        font-size: 10px;
-        position: relative;
-        top: -10px;
-    }
-    .livello{
-        font-size: 10px;
-        position: relative;
-        top: -20px;
-    }
-    .giocatore{
-        height: 120px;
-        width: 120px;
-        position: relative;
-        top:40px;
-        left: 70px;
-    }
-    .personaggio{
-        position: absolute;
-        top: 20vh;
-        left: 20vw;
-    }
-    .box{
-        margin-left: 50px;
-        height: 70px;
-        width: 100px;
-        border: solid;
-        border-width: 4px;
-        border-color: rgb(229, 255, 0);
-        border-radius: 100%;
-    }
-    .box2{
-        margin-bottom: 30px;
-        height: 70px;
-        width: 100px;
-        border: solid;
-        border-width: 4px;
-        border-color: rgb(229, 255, 0);
-        border-radius: 100%;
-    }
-    .nemico{
-        position: absolute;
-        top:12vh;
-        right: 15vw;
-    }
-    .enemy{
-        background-image: url("./immagini/nemico1.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 100px;
-        width: 100px;
-    }
-    .enemy2{
-        background-image: url("./immagini/nemico2.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 120px;
-        width: 120px;
-        position: relative;
-        top: -20px;
-    }
-    .enemy3{
-        background-image: url("./immagini/nemico3.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 120px;
-        width: 120px;
-        position: relative;
-        top: -20px;
-    }
-    .boss{
-        background-image: url("./immagini/boss.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 130px;
-        width: 130px;
-    }
-    .fs-message{
-        font-size: 15px;
-        
-    }
-    .btn{
-        height: 25px;
-        border: none;
-        border-radius: 10px;
-        font-size: 10px;
-        position: relative;
-        top:-100px;
-        left: -100px;
-    }
 }
