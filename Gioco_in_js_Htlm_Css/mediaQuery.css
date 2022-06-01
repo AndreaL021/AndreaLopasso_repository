@@ -50,19 +50,17 @@
     }
     .fs-message{
         font-size: 20px;
-
+        
     }
-    .atk{
-        position: absolute;
-        left: 30px;
-        bottom: 90px;
+    .btn{
+        border: none;
+        border-radius: 10px;
+        width: 20vw;
     }
-    .bg-green{
-        background-color: rgb(52, 136, 19);
-        width: 38vw;
+    .p1-btn{
         position: absolute;
-        left: 50px;
-        bottom: 50px;
+        bottom: 10px;
+        right: auto;
     }
 }
 @media screen and (max-height:700px){
@@ -72,12 +70,55 @@
         background-image: url("/immagini/background.jpg");
         background-size: cover;
     }
+    .gold{
+        color: gold;
+        margin: auto;
+        font-size: 10px;
+    }
     .giocatore{
         position: absolute;
         width: 200px;
         height: 200px;
         left: 20%;
         top: 40%;
+    }
+    .dmg-message{
+        position: absolute;
+        top: 40%;
+        left: 35%;
+        font-size: 15px;
+        color: rgb(255, 14, 14);
+        z-index: 10;
+    }
+    .dmg-message2{
+        position: absolute;
+        top: 40%;
+        right: 40%;
+        font-size: 15px;
+        color: rgb(255, 14, 14);
+        z-index: 10;
+    }
+    .box{
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        height: 50px;
+        width: 100px;
+        border: solid;
+        border-width: 3px;
+        border-color: rgb(229, 255, 0);
+        border-radius: 100%;
+    }
+    .box2{
+        position: absolute;
+        top: 25%;
+        right: 25%;
+        height: 50px;
+        width: 100px;
+        border: solid;
+        border-width: 3px;
+        border-color: rgb(229, 255, 0);
+        border-radius: 100%;
     }
     .enemy{
         position: absolute;
@@ -117,19 +158,17 @@
     }
     .fs-message{
         font-size: 20px;
-
+        
     }
-    .atk{
-        position: absolute;
-        left: 30px;
-        bottom: 60px;
+    .btn{
+        border: none;
+        border-radius: 10px;
+        width: 17vw;
     }
-    .bg-green{
-        background-color: rgb(52, 136, 19);
-        width: 38vw;
+    .p1-btn{
         position: absolute;
-        left: 50px;
-        bottom: 20px;
+        bottom: 10px;
+        right: auto;
     }
 }
 @media screen and (max-width: 700px){
@@ -137,7 +176,7 @@
     position: absolute;
     width: 150px;
     height: 150px;
-    left: 20%;
+    left: 25%;
     top: 40%;
 }
 .gold{
@@ -160,28 +199,6 @@
     font-size: 15px;
     color: rgb(255, 14, 14);
     z-index: 10;
-}
-.box{
-    position: absolute;
-    top: 25%;
-    left: 20%;
-    height: 50px;
-    width: 100px;
-    border: solid;
-    border-width: 3px;
-    border-color: rgb(229, 255, 0);
-    border-radius: 100%;
-}
-.box2{
-    position: absolute;
-    top: 25%;
-    right: 20%;
-    height: 50px;
-    width: 100px;
-    border: solid;
-    border-width: 3px;
-    border-color: rgb(229, 255, 0);
-    border-radius: 100%;
 }
 .enemy{
     position: absolute;
@@ -236,23 +253,54 @@
     font-size: 15px;
     
 }
-.bg-green{
-    background-color: rgb(52, 136, 19);
-    width: 20vw;
-    position: relative;
-    left: 30px;
-
-}
 .btn{
     border: none;
     border-radius: 10px;
-    font-size: 15px !important;
+    width: 17vw;
 }
 .p1-btn{
     position: absolute;
-    bottom: 10px;
-    left: 20px;
+    right: auto;
 }
 }
 @media screen and (max-height:320px){
+    .btn{
+        border: none;
+        border-radius: 10px;
+        width: 17vw;
+        height: 30px;
+        margin-bottom: 2px !important;
+        position: relative;
+        top: 10px;
+    }
+    .dmg-message{
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        font-size: 15px;
+        color: rgb(255, 14, 14);
+        z-index: 10;
+    }
+    .box{
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        height: 50px;
+        width: 100px;
+        border: solid;
+        border-width: 3px;
+        border-color: rgb(229, 255, 0);
+        border-radius: 100%;
+    }
+    .box2{
+        position: absolute;
+        top: 20%;
+        right: 25%;
+        height: 50px;
+        width: 100px;
+        border: solid;
+        border-width: 3px;
+        border-color: rgb(229, 255, 0);
+        border-radius: 100%;
+    }
 }

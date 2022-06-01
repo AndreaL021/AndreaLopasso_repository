@@ -1,6 +1,9 @@
 button:hover{
     background-color: rgb(22, 184, 22) !important;
 }
+ul{
+    list-style-type: none;
+}
 .b{
     font-weight: bold;
 }
@@ -109,9 +112,7 @@ button:hover{
     width: 20vw;
 }
 .bg-green{
-    background-color: rgb(52, 136, 19);
-    width: 34vw;
-
+    background-color: rgb(52, 136, 19)
 }
 .p1-btn{
     position: absolute;

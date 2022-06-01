@@ -23,7 +23,7 @@ export function showGame(atk, p1, nemico){
     }
     elemento.innerHTML+=
         `
-            <li><button id="heal" class="btn b text-white bg-green d-flex justify-content-center">Pozione</button></li>
+            <li><button id="heal" class="btn b text-white bg-green d-flex justify-content-center m-1">Pozione</button></li>
         `;
     atk.appendChild(elemento);
     vita.innerHTML=('Vita: '+p1.hp);
