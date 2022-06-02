@@ -8,7 +8,7 @@ ul{
     font-weight: bold;
 }
 .gold{
-    color: gold;
+    color: rgb(250, 220, 51);
     margin: auto;
 }
 .field{
@@ -49,6 +49,7 @@ ul{
     border: solid;
     border-width: 7px;
     border-color: rgb(229, 255, 0);
+    background-color: darkblue;
     border-radius: 100%;
 }
 .box2{
@@ -60,9 +61,10 @@ ul{
     border: solid;
     border-width: 7px;
     border-color: rgb(229, 255, 0);
+    background-color: darkblue;
     border-radius: 100%;
 }
-.enemy{
+.enemy1{
     position: absolute;
     left: 60%;
     top: 40%;
@@ -104,7 +106,24 @@ ul{
 }
 .fs-message{
     font-size: 25px;
-    
+}
+.poison{
+    position: absolute;
+    bottom: 17%;
+    right: 25%;
+    font-size: 17px;
+    background-color: rgb(8, 61, 1);
+    color: green;
+    z-index: 10;
+}
+.heal{
+    position: absolute;
+    top: 80%;
+    left: 27%;
+    font-size: 17px;
+    background-color: rgb(52, 136, 19);
+    color: white;
+    z-index: 10;
 }
 .btn{
     border: none;

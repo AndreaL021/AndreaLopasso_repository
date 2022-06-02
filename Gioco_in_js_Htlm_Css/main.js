@@ -82,35 +82,32 @@ let gioco={
     },
     attacco: function(atk, nemico) {
         if (nemico.hp>0 && this.data.personaggio.hp>0) {
-            
+            heal.innerHTML=``;
             let attacchi=this.data.personaggio.atk;
             let attacco;
             let def=nemico.def;
-
+            let message= document.querySelector(".poison");
             if (nemico.poison==true && poison>0) {
+                message.innerHTML=`Avvelenamento -5`;
                 nemico.hp-=5;
                 poison-=1;
-                console.log("Avvelenamento, turni rimanenti: "+(poison+1));
             }else if (nemico.poison==true && poison==0) {
+                message.innerHTML=`Avvelenamento terminato`;
                 nemico.poison=false;
-                poison=3;
-                console.log("Avvelenamento terminato");
+                poison=5;
+            }else if (nemico.poison==false && atk!=5) {
+                message.innerHTML=``;
             }
-
-            for (let i = 0; i < attacchi.length; i++) {
-                if (atk==i) {
-                    attacco=attacchi[i];
-                    if (i<=3) {
-                        def=def[i];
-                    }else if (i==4) {
-                        def=def[1];
-                        this.data.personaggio.hp+=20;
-                    }else if (i==5) {
-                        def=def[1];
-                        nemico.poison=true;
-                        console.log("Nemico avvelenato");
-                    }
-                }
+            attacco=attacchi[atk];
+            if (atk<=3) {
+                def=def[atk];
+            }else if (atk==4) {
+                def=def[0];
+                this.data.personaggio.hp+=20;
+            }else if (atk==5) {
+                def=def[0];
+                nemico.poison=true;
+                message.innerHTML=`Nemico avvelenato`;
             }
             attacco-=(attacco*def/100)
             if (attacco>nemico.hp) {
@@ -118,8 +115,22 @@ let gioco={
             }else{
                 nemico.hp-=attacco;
             }
+            funzioni.showDmg(attacco, nemico, poison);
         }
     },
+    restart: function() {
+        this.data.personaggio.hp=1000;
+        this.data.personaggio.heals=5;
+        this.data.nemico.hp=150;
+        this.data.nemico2.hp=200;
+        this.data.nemico3.hp=100;
+        this.data.boss.hp=700;
+        let dmg= document.querySelector(".dmg-message");
+        let dmg2= document.querySelector(".dmg-message2");
+        dmg.innerHTML=``;
+        dmg2.innerHTML=``;
+    
+    }
 }
 let poison=5;
 
@@ -130,6 +141,7 @@ $(document).ready(function() {
 
 let p1=gioco.data.personaggio;
 let nemico=gioco.data.nemico;
+let nemico1=gioco.data.nemico;
 let nemico2=gioco.data.nemico2;
 let nemico3=gioco.data.nemico3;
 let boss=gioco.data.boss;
@@ -147,14 +159,13 @@ for (let i = 0; i < funzioni.attacchi.length; i++){
 
         gioco.attacco(attacco, nemico)
         gioco.attaccNemico(nemico.atk, p1)
-        console.log(nemico.hp);
         if (nemico.hp==0) {
             $(document).ready(function() {
                 jQuery.messaggio();
-                funzioni.message();
+                funzioni.message(p1);
             });
         }
-        if (nemico.hp==0 && nemico2.hp>0) {
+        if (nemico1.hp==0 && nemico2.hp>0) {
             nemico=nemico2;
             funzioni.updateGame(atk, p1, nemico);
         }
@@ -166,44 +177,39 @@ for (let i = 0; i < funzioni.attacchi.length; i++){
             nemico=boss;
             funzioni.updateGame(atk, p1, nemico);
         }
+        if (boss.hp==0) {
+            nemico=nemico1;
+            gioco.restart();
+        }
         funzioni.updateGame(atk, p1, nemico);
     });
 }
-
+let heal= document.querySelector(".heal");
 let pozione= document.querySelector("#heal");
 pozione.addEventListener('click', function(){
     if (p1.heals>0 && p1.hp<1000) {
         p1.hp+=200;
         p1.heals-=1;
-    }else if (p1.hp>=200) {
-        console.log("Vita al massimo");
+        funzioni.showDmg(200, nemico);
+    }else if (p1.hp>=1000) {
+
+        heal.innerHTML=`Vita al massimo`;
     }else{
-        console.log("Cure finite");
+        heal.innerHTML=`Cure finite`;
     }
-    gioco.attaccNemico(nemico.atk, p1)
-    console.log(nemico.hp);
+    let message= document.querySelector(".poison");
+    if (nemico.poison==true && poison>0) {
+        message.innerHTML=`Avvelenamento -5`;
+        nemico.hp-=5;
+        poison-=1;
+        console.log("Avvelenamento, turni rimanenti: "+(poison+1));
+    }else if (nemico.poison==true && poison==0) {
+        message.innerHTML=`Avvelenamento terminato`;
+        nemico.poison=false;
+        poison=5;
+    }else if (nemico.poison==false) {
+        message.innerHTML=``;
+    }
+    gioco.attaccNemico(nemico.atk, p1);
     funzioni.updateGame(atk, p1, nemico);
 });
-// $(document).ready(function(){
-//     $("button").hover(function(){
-//         $(this).css("background-color", "yellow");
-//     });
-// });
-
-// for (let i = 0; i < this.elementi.length; i++) {
-// document.querySelector("#button").addEventListener("mouseover", function(){
-//     // let button = document.querySelector("#button").hover(function(){
-//         $(this.document).css("background-color", "yellow");
-//     // });
-// });
-// }
-// console.log(elemento);
-
-// gioco.pozione(boss);
-// gioco.attacco(boss.atk, p1);
-// gioco.attacco(p1.atk.fuoco, boss);
-// console.log(p1);
-// console.log(boss.hp);
-// console.log(nemico);
-// console.log(nemico2);
-// console.log(nemico3);

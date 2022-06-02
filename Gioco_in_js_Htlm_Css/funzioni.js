@@ -13,7 +13,7 @@ export let attacchi=[
 ];
 export function showGame(atk, p1, nemico){
     let showNemico= document.querySelector("#enemy");
-    showNemico.setAttribute("class", "enemy");
+    showNemico.setAttribute("class", "enemy1");
     let elemento= document.createElement("ul");
     for (let i = 0; i < this.attacchi.length; i++) {
         elemento.innerHTML+=
@@ -32,7 +32,10 @@ export function showGame(atk, p1, nemico){
     nemicohp.innerHTML=('Vita: '+nemico.hp);
 };
 export function updateGame(atk, p1, nemico){
-    if (nemico.id==2) {
+    if (nemico.id==1) {
+        let showNemico= document.querySelector("#enemy");
+        showNemico.setAttribute("class", "enemy1");
+    }else if (nemico.id==2) {
         let showNemico= document.querySelector("#enemy");
         showNemico.setAttribute("class", "enemy2");
     } else if (nemico.id==3) {
@@ -49,6 +52,7 @@ export function updateGame(atk, p1, nemico){
 }
 let x=1;
 export function message() {
+    let message2= document.getElementById("message2");
     let modal= document.getElementById("message");
     let message= document.createElement("span");
     message.setAttribute("class", "text-center text-white fs-message");
@@ -57,31 +61,45 @@ export function message() {
         `
             Gioco terminato
         `;
+        message2.innerHTML=
+        `
+            Clicca per ricominciare
+        `;
+        x==0;
     }else{
         message.innerHTML=
         `
             Livello ${x}
         `;
-    }
-    x++;
-    if (x>=2) {
-        modal.replaceChild(message, modal.firstChild);
-    }else{
-        modal.appendChild(message);
-    }
-}
-export function showDmg() {
-    let modal= document.getElementById("message");
-    let message= document.createElement("span");
-    message.setAttribute("class", "text-center text-white fs-message");
-        message.innerHTML=
+        message2.innerHTML=
         `
-            Gioco terminato
+            Clicca per continuare
         `;
+    }
     x++;
-    if (x>=2) {
-        modal.replaceChild(message, modal.firstChild);
+    modal.replaceChild(message, modal.firstChild);
+}
+
+export function showDmg(p1damage, enemy) {
+    let dmg= document.querySelector(".dmg-message");
+    let dmg2= document.querySelector(".dmg-message2");
+    if (p1damage==200) {
+        dmg.innerHTML=
+        `
+            +${p1damage-enemy.atk}
+        `;
+        dmg2.innerHTML=
+        `
+            
+        `;
     }else{
-        modal.appendChild(message);
+        dmg.innerHTML=
+        `
+            -${enemy.atk}
+        `;
+        dmg2.innerHTML=
+        `
+            -${p1damage}
+        `;
     }
 }

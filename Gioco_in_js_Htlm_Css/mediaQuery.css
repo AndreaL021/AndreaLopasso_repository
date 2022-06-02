@@ -5,6 +5,24 @@
         background-image: url("/immagini/background.jpg");
         background-size: cover;
     }
+    .poison{
+        position: absolute;
+        bottom: 17%;
+        right: 25%;
+        font-size: 17px;
+        background-color: rgb(8, 61, 1);
+        color: green;
+        z-index: 10;
+    }
+    .heal{
+        position: absolute;
+        top: 80%;
+        left: 27%;
+        font-size: 17px;
+        background-color: rgb(52, 136, 19);
+        color: white;
+        z-index: 10;
+    }
     .giocatore{
         position: absolute;
         width: 200px;
@@ -75,6 +93,24 @@
         margin: auto;
         font-size: 10px;
     }
+    .poison{
+        position: absolute;
+        bottom: 17%;
+        right: 15%;
+        font-size: 17px;
+        background-color: rgb(8, 61, 1);
+        color: green;
+        z-index: 10;
+    }
+    .heal{
+        position: absolute;
+        top: 80%;
+        left: 27%;
+        font-size: 17px;
+        background-color: rgb(52, 136, 19);
+        color: white;
+        z-index: 10;
+    }
     .giocatore{
         position: absolute;
         width: 200px;
@@ -107,6 +143,7 @@
         border: solid;
         border-width: 3px;
         border-color: rgb(229, 255, 0);
+        background-color: darkblue;
         border-radius: 100%;
     }
     .box2{
@@ -118,6 +155,7 @@
         border: solid;
         border-width: 3px;
         border-color: rgb(229, 255, 0);
+        background-color: darkblue;
         border-radius: 100%;
     }
     .enemy{
@@ -172,6 +210,24 @@
     }
 }
 @media screen and (max-width: 700px){
+    .poison{
+        position: absolute;
+        bottom: 14%;
+        right: 25%;
+        font-size: 12px;
+        background-color: rgb(8, 61, 1);
+        color: green;
+        z-index: 10;
+    }
+    .heal{
+        position: absolute;
+        top: 80%;
+        left: 30%;
+        font-size: 12px;
+        background-color: rgb(52, 136, 19);
+        color: white;
+        z-index: 10;
+    }
 .giocatore{
     position: absolute;
     width: 150px;
@@ -264,6 +320,24 @@
 }
 }
 @media screen and (max-height:320px){
+    .poison{
+        position: absolute;
+        bottom: 10%;
+        right: 25%;
+        font-size: 12px;
+        background-color: rgb(8, 61, 1);
+        color: green;
+        z-index: 10;
+    }
+    .heal{
+        position: absolute;
+        top: 85%;
+        left: 30%;
+        font-size: 12px;
+        background-color: rgb(52, 136, 19);
+        color: white;
+        z-index: 10;
+    }
     .btn{
         border: none;
         border-radius: 10px;
@@ -290,6 +364,7 @@
         border: solid;
         border-width: 3px;
         border-color: rgb(229, 255, 0);
+        background-color: darkblue;
         border-radius: 100%;
     }
     .box2{
@@ -301,6 +376,7 @@
         border: solid;
         border-width: 3px;
         border-color: rgb(229, 255, 0);
+        background-color: darkblue;
         border-radius: 100%;
     }
 }
