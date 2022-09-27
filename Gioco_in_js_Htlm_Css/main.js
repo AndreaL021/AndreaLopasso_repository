@@ -14,7 +14,7 @@ let gioco={
                 25,     //fulmine
                 25,     //acqua
                 20,     //cura
-                10,      //veleno
+                10,     //veleno
             ]
         },
         nemico: {
